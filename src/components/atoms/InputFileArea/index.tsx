@@ -1,13 +1,15 @@
 import * as S from './styles';
 
-type FileUploadAreaProps = {
+type InputFileAreaProps = {
   onChange: (files: FileList | null) => void;
+  multiple?: boolean;
 };
 
-export const FileUploadArea = (
+export const InputFileArea = (
   {
-    onChange
-  }: FileUploadAreaProps
+    onChange,
+    multiple
+  }: InputFileAreaProps
 ) => {
 
   const handleOnChange = (event:React.ChangeEvent<HTMLInputElement>): void => {
@@ -18,6 +20,7 @@ export const FileUploadArea = (
     <S.Container>
       <S.FileInput 
         type="file"
+        multiple={multiple}
         onChange={handleOnChange}
       />
       <S.Text>Click to upload</S.Text>
